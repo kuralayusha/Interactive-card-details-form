@@ -8,11 +8,11 @@ import Thanks from './components/Thanks'
 // import backGround from './images/bg-main-mobile.png'
 
 function App() {
-  const [cardNum, setCardNum] = useState('0010 0000 0000 0000')
-  const [name, setName] = useState('Yusha Kuralay')
-  const [expDateM, setExpDateM] = useState('01')
-  const [expDateY, setExpDateY] = useState('06')
-  const [cvv, setCvv] = useState('001')
+  const [cardNum, setCardNum] = useState('●●●● ●●●● ●●●● ●●●●')
+  const [name, setName] = useState('e.g. Jane Appleseed')
+  const [expDateM, setExpDateM] = useState('MM')
+  const [expDateY, setExpDateY] = useState('YY')
+  const [cvv, setCvv] = useState('●●●')
 
   return (
     <div className="App">

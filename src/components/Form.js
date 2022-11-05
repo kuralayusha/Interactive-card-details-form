@@ -1,8 +1,13 @@
 import { useState } from 'react'
 
 function Form(props) {
-  const [error, setError] = useState()
-  const [validError, setValidError] = useState()
+  const [errorName, setErrorName] = useState()
+
+  const [errorCNum, setErrorCNum] = useState()
+
+  const [errorDates, setErrorDates] = useState()
+
+  const [errorCvv, setErrorCvv] = useState()
 
   const normalizeCardNumber = (value) => {
     return (
@@ -16,46 +21,93 @@ function Form(props) {
 
   function handleNameChange(e) {
     props.setName(e.target.value)
+
+    const target = e.target
+
+    if (!target.value) {
+      setErrorName(`Can't be blank`)
+    } else {
+      setErrorName('')
+    }
+
+    if (e.target.value === '') {
+      props.setName('e.g. Jane Appleseed')
+    }
   }
 
   function handleCardNumChange(e) {
     props.setCardNum(e.target.value)
+
+    const target = e.target
+
+    if (!target.value) {
+      setErrorCNum(`Can't be blank`)
+    } else {
+      setErrorCNum('')
+    }
+
+    if (e.target.value === '') {
+      props.setCardNum('●●●● ●●●● ●●●● ●●●●')
+    }
   }
 
   function handleExpDateMChange(e) {
     props.setExpDateM(e.target.value)
+
+    if (e.target.value === '') {
+      props.setExpDateM('MM')
+    }
   }
 
   function handleExpDateYChange(e) {
     props.setExpDateY(e.target.value)
+
+    if (e.target.value === '') {
+      props.setExpDateY('YY')
+    }
   }
 
   function handleCvvChange(e) {
     props.setCvv(e.target.value)
-  }
 
-  function handleBlankError(e) {
     const target = e.target
-
-    if (isNaN(target.value)) {
-      setValidError('Please enter a valid name')
-    } else {
-      setValidError('')
-    }
 
     if (!target.value) {
-      setError(`cannot be blank`)
+      setErrorCvv(`Can't be blank`)
     } else {
-      setError('')
+      setErrorCvv('')
+    }
+
+    if (e.target.value === '') {
+      props.setCvv('●●●')
     }
   }
 
-  function handleValidError(e) {
+  function handleDatesError(e) {
     const target = e.target
-    console.log(!isNaN(target.value))
+
+    if (!target.value) {
+      setErrorDates(`Can't be blank`)
+    } else {
+      setErrorDates('')
+    }
   }
 
-  // console.log(!isNaN('3'))
+  // function handleBlankErrorCNum(e) {
+  //   const target = e.target
+
+  //   // if (Number.isNaN(target.value)) {
+  //   //   setValidErrorCNum('Wrong format, numbers only')
+  //   // } else {
+  //   //   setValidErrorCNum('')
+  //   // }
+
+  //   if (!target.value) {
+  //     setErrorCNum(`Can't be blank`)
+  //   } else {
+  //     setErrorCNum('')
+  //   }
+  // }
 
   return (
     <form>
@@ -66,13 +118,11 @@ function Form(props) {
         placeholder="e.g. Jane Appleseed"
         onChange={(e) => {
           handleNameChange(e)
-          handleBlankError(e)
-          handleValidError(e)
+          // handleBlankErrorName(e)
         }}
       />
       <br />
-      {error && <span>{error}</span>}
-      {validError && <span>{validError}</span>}
+      {errorName && <span>{errorName}</span>}
       <br />
       <label>CARD NUMBER</label>
       <input
@@ -81,14 +131,14 @@ function Form(props) {
         inputMode="numeric"
         autoComplete="cc-number"
         onChange={(e) => {
-          handleBlankError(e)
+          // handleBlankErrorCNum(e)
           handleCardNumChange(e)
           const { value } = e.target
           e.target.value = normalizeCardNumber(value)
         }}
       />
       <br />
-      {error && <span>{error}</span>}
+      {errorCNum && <span>{errorCNum}</span>}
       <br />
       <label>EXP. DATE</label>
       <>
@@ -97,8 +147,8 @@ function Form(props) {
           maxLength={2}
           placeholder="MM"
           onChange={(e) => {
-            handleBlankError(e)
             handleExpDateMChange(e)
+            handleDatesError(e)
           }}
         />
         <input
@@ -106,13 +156,13 @@ function Form(props) {
           maxLength={2}
           placeholder="YY"
           onChange={(e) => {
-            handleBlankError(e)
             handleExpDateYChange(e)
+            handleDatesError(e)
           }}
         />
       </>
       <br />
-      {error && <span>{error}</span>}
+      {errorDates && <span>{errorDates}</span>}
       <br />
       <label>CVV</label>
       <input
@@ -120,12 +170,11 @@ function Form(props) {
         type="text"
         placeholder="e.g. 123"
         onChange={(e) => {
-          handleBlankError(e)
           handleCvvChange(e)
         }}
       />
       <br />
-      {error && <span>{error}</span>}
+      {errorCvv && <span>{errorCvv}</span>}
       <br />
       <button>Confirm</button>
     </form>
