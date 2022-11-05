@@ -1,7 +1,12 @@
+import Card from './components/Card'
+import Form from './components/Form'
+import Thanks from './components/Thanks'
 function App() {
   return (
     <div className="App">
-      <h1>React App</h1>
+      <Card />
+      <Form />
+      <Thanks />
     </div>
   )
 }
