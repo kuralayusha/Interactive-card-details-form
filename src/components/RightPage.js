@@ -1,7 +1,7 @@
 import Form from './Form'
 import Thanks from './Thanks'
 
-function MainPage() {
+function RightPage() {
   return (
     <div>
       <Form />
@@ -10,4 +10,4 @@ function MainPage() {
   )
 }
 
-export default MainPage
+export default RightPage
