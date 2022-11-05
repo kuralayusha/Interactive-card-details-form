@@ -1,12 +1,9 @@
-import Card from './components/Card'
-import Form from './components/Form'
-import Thanks from './components/Thanks'
+import MainPage from './components/MainPage'
 function App() {
   return (
     <div className="App">
-      <Card />
-      <Form />
-      <Thanks />
+      <h1>here comes main page bg and cards</h1>
+      <MainPage />
     </div>
   )
 }
