@@ -28,7 +28,6 @@ body {
     align-items: center;
     padding: 0;
     margin: 0;
-    position: relative;
 }
 
 /*------------------------------FRONT CARD STYLE---------------------------- */
@@ -261,3 +260,231 @@ button {
     font-weight: 100;
     letter-spacing: 1px;
 }
+
+
+/*---------------------MEDIA QUERIES (DESKTOP)------------------------ */
+
+@media (min-width: 1440px) {
+    .App {
+        /* background-color: #2f110998; */
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+        height: 100vh;
+    }
+
+    .container {
+        background-color: rgb(119, 0, 255);
+        background-image: url(./images/bg-main-desktop.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 35vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+    }
+
+    /*------------------------------FRONT CARD STYLE---------------------------- */
+
+    .front--card {
+        padding: 0;
+        margin: 0;
+        position: absolute;
+        left:8vw;
+        top: 20%;
+        z-index: 10;
+    }
+
+    .front--card--info h1 {
+        position: absolute;
+        left: 4%;
+        top: 50%;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 23px;
+        letter-spacing: 6px;
+    }
+
+    .front--card--info .bottom {
+        width: 59%;
+        position: absolute;
+        top: 73%;
+        left: 4%;
+    }
+
+    .circle.white {
+        top: 17px;
+        left: 35px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .circle.blank {
+        top: 30px;
+        left: 110px;
+        width: 27px;
+        height: 27px;
+    }
+
+    .front {
+        width: 500px;
+    } 
+
+    .back {
+        width: 500px;
+    }
+
+    /* -----------------------------BACK CARD STYLE---------------------------- */
+
+    .back--card {
+        position: absolute;
+        padding: 0;
+        margin: 0;
+        left: 50%;
+        top: 55%;
+        z-index: 0;
+    }
+    
+    .back--card--info {
+        margin: 0;
+        padding: 0;
+        /* background-color: aqua; */
+        position: absolute;
+        top: 35%;
+        left: 80%;
+        font-size: large;
+        letter-spacing: 3px;
+        font-weight: lighter;
+    }
+
+    /* --------------------------------FORM STYLE------------------------------- */
+
+    .form {
+        /* background-color: black; */
+        width: 50vw;
+        display: flex;
+        flex-direction: column;
+        margin-top: 15%;
+        padding: 0 150px 0px 100px;
+        font-size: 20px;
+    }
+    
+    span {
+        color: red;
+        margin-bottom: 0.1%;
+    }
+    
+    .form label {
+        color: #21092F;
+        font-weight: 500;
+        letter-spacing: 3px;
+    }
+    
+    .form input {
+        width: 100%;
+        height: 60px;
+        font-size: 20px;
+        margin-top: 5px;
+        border: 3px solid #DFDEE0;
+        border-radius: 16px;
+        padding: 0 25px;
+        margin-bottom: 30px;
+    }
+    
+    .form input:focus {
+        outline: 3px solid #21092F;
+        border: none;
+    }
+    
+    .form input::placeholder {
+        color: rgba(65, 65, 65, 0.473);
+        font-family: 'Space Grotesk', sans-serif;
+    }
+    
+    .dates--cvv {
+        /* background-color: cadetblue; */
+        display: flex;
+        flex-direction: row;
+    }
+    
+    .dates--cvv input {
+        margin-right: 6%;
+    }
+    
+    .dates {
+        /* background-color: rgba(0, 0, 255, 0.486); */
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+    }
+    
+    .dates--input {
+        /* background-color: rgba(0, 255, 0, 0.486); */
+        display: flex;
+        flex-direction: row;
+        width: 90%;
+    }
+    
+    /*--------------------------------BUTTON STYLE------------------------------ */
+
+    button {
+        margin-top: 30px;
+        height: 70px;
+        font-size: 30px;
+    }
+    
+    /*---------------------------------THANKS STYLE---------------------------- */
+    
+    .thanks--container {
+        /* background-color: #21092f85; */
+        padding: 15% 00%;
+        justify-content: center;
+        width: 60%;
+        height: 100vh;
+        
+    }
+    
+    .thanks {
+        /* background-color: aqua; */
+        color: #21092F;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+        
+    .thanks img {
+        width: 100px;
+    }
+    
+    .thanks h1 {
+        font-weight: 500;
+        letter-spacing: 3px;
+        margin-top: 70px;
+        font-size: 40px;
+    }
+        
+    .thanks p {
+        font-size: 20px;
+        font-weight: 500;
+        margin-top: 0px;
+        color: #21092f8f;
+    }
+        
+    .thanks button {
+        width: 50%;
+        cursor: pointer;
+    }
+    
+    .thanks button a {
+        font-size: 30px;
+        text-decoration: none;
+        color: white;
+        font-weight: 100;
+        letter-spacing: 1px;
+    }
+}   

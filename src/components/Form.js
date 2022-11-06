@@ -138,7 +138,6 @@ function Form(props) {
         style={{ border: errorName ? '4px solid red' : '' }}
       />
       {errorName && <span>{errorName}</span>}
-      <br />
       <label>CARD NUMBER</label>
       <input
         placeholder="e.g. 1234 5678 9123 0000"
