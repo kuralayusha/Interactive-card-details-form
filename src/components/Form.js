@@ -135,6 +135,7 @@ function Form(props) {
           handleNameChange(e)
           // handleBlankErrorName(e)
         }}
+        style={{ border: errorName ? '4px solid red' : '' }}
       />
       {errorName && <span>{errorName}</span>}
       <br />
@@ -150,6 +151,7 @@ function Form(props) {
           const { value } = e.target
           e.target.value = normalizeCardNumber(value)
         }}
+        style={{ border: errorCNum ? '4px solid red' : '' }}
       />
       {errorCNum && <span>{errorCNum}</span>}
       <div className="dates--cvv">
@@ -164,6 +166,7 @@ function Form(props) {
                 handleExpDateMChange(e)
                 handleDatesError(e)
               }}
+              style={{ border: errorDates ? '4px solid red' : '' }}
             />
             <input
               type="text"
@@ -173,6 +176,7 @@ function Form(props) {
                 handleExpDateYChange(e)
                 handleDatesError(e)
               }}
+              style={{ border: errorDates ? '4px solid red' : '' }}
             />
           </div>
           {errorDates && <span>{errorDates}</span>}
@@ -186,6 +190,7 @@ function Form(props) {
             onChange={(e) => {
               handleCvvChange(e)
             }}
+            style={{ border: errorCvv ? '4px solid red' : '' }}
           />
           {errorCvv && <span>{errorCvv}</span>}
         </div>

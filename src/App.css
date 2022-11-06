@@ -163,6 +163,11 @@ span {
     padding: 0 35px;
 }
 
+.form input:focus {
+    outline: 3px solid #21092F;
+    border: none;
+}
+
 .form input::placeholder {
     color: rgba(65, 65, 65, 0.473);
     font-family: 'Space Grotesk', sans-serif;
