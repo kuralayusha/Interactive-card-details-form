@@ -94,7 +94,18 @@ function Form(props) {
   }
 
   function handleConfirm() {
-    props.setConfirm(true)
+    const errArr = [errorName, errorCNum, errorDates, errorCvv]
+    errArr.forEach((err) => {
+      if (err === `Can't be blank`) {
+        props.setConfirm(false)
+        console.log('error')
+      }
+
+      if (err === '') {
+        props.setConfirm(true)
+        console.log('success')
+      }
+    })
   }
 
   // function handleBlankErrorCNum(e) {
@@ -126,6 +137,7 @@ function Form(props) {
         }}
       />
       {errorName && <span>{errorName}</span>}
+      <br />
       <label>CARD NUMBER</label>
       <input
         placeholder="e.g. 1234 5678 9123 0000"
@@ -162,8 +174,8 @@ function Form(props) {
                 handleDatesError(e)
               }}
             />
-            {errorDates && <span>{errorDates}</span>}
           </div>
+          {errorDates && <span>{errorDates}</span>}
         </div>
         <div className="cvv">
           <label>CVV</label>
