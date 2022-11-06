@@ -13,6 +13,7 @@ function App() {
   const [expDateM, setExpDateM] = useState('MM')
   const [expDateY, setExpDateY] = useState('YY')
   const [cvv, setCvv] = useState('●●●')
+  const [confirm, setConfirm] = useState(false)
 
   return (
     <div className="App">
@@ -35,15 +36,18 @@ function App() {
           </div>
         </div>
       </div>
-      <Form
-        setCardNum={setCardNum}
-        setName={setName}
-        setExpDateM={setExpDateM}
-        setExpDateY={setExpDateY}
-        setCvv={setCvv}
-      />
-
-      <Thanks />
+      {confirm ? (
+        <Thanks />
+      ) : (
+        <Form
+          setCardNum={setCardNum}
+          setName={setName}
+          setExpDateM={setExpDateM}
+          setExpDateY={setExpDateY}
+          setCvv={setCvv}
+          setConfirm={setConfirm}
+        />
+      )}
     </div>
   )
 }

@@ -93,6 +93,10 @@ function Form(props) {
     }
   }
 
+  function handleConfirm() {
+    props.setConfirm(true)
+  }
+
   // function handleBlankErrorCNum(e) {
   //   const target = e.target
 
@@ -111,7 +115,7 @@ function Form(props) {
 
   return (
     <form>
-      <label>CARDHOLDER NAME</label>
+      <label className="cardholder--name">CARDHOLDER NAME</label>
       <input
         name="CARDHOLDER NAME"
         type="text"
@@ -176,7 +180,9 @@ function Form(props) {
       <br />
       {errorCvv && <span>{errorCvv}</span>}
       <br />
-      <button>Confirm</button>
+      <button type="button" onClick={handleConfirm}>
+        Confirm
+      </button>
     </form>
   )
 }
