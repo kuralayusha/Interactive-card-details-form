@@ -114,7 +114,7 @@ function Form(props) {
   // }
 
   return (
-    <form>
+    <form className="form">
       <label className="cardholder--name">CARDHOLDER NAME</label>
       <input
         name="CARDHOLDER NAME"
@@ -125,9 +125,7 @@ function Form(props) {
           // handleBlankErrorName(e)
         }}
       />
-      <br />
       {errorName && <span>{errorName}</span>}
-      <br />
       <label>CARD NUMBER</label>
       <input
         placeholder="e.g. 1234 5678 9123 0000"
@@ -141,45 +139,45 @@ function Form(props) {
           e.target.value = normalizeCardNumber(value)
         }}
       />
-      <br />
       {errorCNum && <span>{errorCNum}</span>}
-      <br />
-      <label>EXP. DATE</label>
-      <>
-        <input
-          type="text"
-          maxLength={2}
-          placeholder="MM"
-          onChange={(e) => {
-            handleExpDateMChange(e)
-            handleDatesError(e)
-          }}
-        />
-        <input
-          type="text"
-          maxLength={2}
-          placeholder="YY"
-          onChange={(e) => {
-            handleExpDateYChange(e)
-            handleDatesError(e)
-          }}
-        />
-      </>
-      <br />
-      {errorDates && <span>{errorDates}</span>}
-      <br />
-      <label>CVV</label>
-      <input
-        maxLength={4}
-        type="text"
-        placeholder="e.g. 123"
-        onChange={(e) => {
-          handleCvvChange(e)
-        }}
-      />
-      <br />
-      {errorCvv && <span>{errorCvv}</span>}
-      <br />
+      <div className="dates--cvv">
+        <div className="dates">
+          <label>EXP. DATE (MM/YY)</label>
+          <div className="dates--input">
+            <input
+              type="text"
+              maxLength={2}
+              placeholder="MM"
+              onChange={(e) => {
+                handleExpDateMChange(e)
+                handleDatesError(e)
+              }}
+            />
+            <input
+              type="text"
+              maxLength={2}
+              placeholder="YY"
+              onChange={(e) => {
+                handleExpDateYChange(e)
+                handleDatesError(e)
+              }}
+            />
+            {errorDates && <span>{errorDates}</span>}
+          </div>
+        </div>
+        <div className="cvv">
+          <label>CVV</label>
+          <input
+            maxLength={4}
+            type="text"
+            placeholder="e.g. 123"
+            onChange={(e) => {
+              handleCvvChange(e)
+            }}
+          />
+          {errorCvv && <span>{errorCvv}</span>}
+        </div>
+      </div>
       <button type="button" onClick={handleConfirm}>
         Confirm
       </button>
