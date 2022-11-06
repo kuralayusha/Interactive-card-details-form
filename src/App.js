@@ -8,30 +8,35 @@ import Thanks from './components/Thanks'
 // import backGround from './images/bg-main-mobile.png'
 
 function App() {
-  const [cardNum, setCardNum] = useState('●●●● ●●●● ●●●● ●●●●')
-  const [name, setName] = useState('e.g. Jane Appleseed')
-  const [expDateM, setExpDateM] = useState('MM')
-  const [expDateY, setExpDateY] = useState('YY')
-  const [cvv, setCvv] = useState('●●●')
+  const [cardNum, setCardNum] = useState('0000 0000 0000 0000')
+  const [name, setName] = useState('JANE APPLESEED')
+  const [expDateM, setExpDateM] = useState('00')
+  const [expDateY, setExpDateY] = useState('00')
+  const [cvv, setCvv] = useState('000')
   const [confirm, setConfirm] = useState(false)
 
   return (
     <div className="App">
       <div className="container">
-        {/* <img src={backGround} /> */}
         <div className="front--card">
-          <img src={frontCard} />
+          <img className="front" src={frontCard} />
           <div className="front--card--info">
+            <div>
+              <p className="circle white"></p>
+              <p className="circle blank"></p>
+            </div>
             <h1>{cardNum}</h1>
-            <h3>{name}</h3>
-            <h3>
-              {expDateM}/{expDateY}
-            </h3>
+            <div className="bottom">
+              <h3>{name}</h3>
+              <h3>
+                {expDateM}/{expDateY}
+              </h3>
+            </div>
           </div>
         </div>
         <div className="back--card">
-          <img src={backCard} />
-          <div className="front--card--info">
+          <img className="back" src={backCard} />
+          <div className="back--card--info">
             <h3>{cvv}</h3>
           </div>
         </div>

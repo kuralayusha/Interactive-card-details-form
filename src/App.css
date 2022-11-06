@@ -1,3 +1,126 @@
-body {
-    font-family: 'Space Grotesk', sans-serif;
+* {
+    box-sizing: border-box;
 }
+
+body {
+    background-color: rgba(0, 255, 255, 0.39);
+    font-family: 'Space Grotesk', sans-serif;
+    padding: 0;
+    margin: 0;
+    color: white;
+}
+
+.App {
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    /* background-color: rgba(33, 0, 71, 0.466); */
+    background-image: url(./images/bg-main-mobile.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    position: relative;
+}
+
+/*------------------------------FRONT CARD STYLE---------------------------- */
+
+.front--card {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 40px;
+    top: 280px;
+    z-index: 10;
+}
+
+.front--card--info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: rgba(0, 255, 255, 0.151); */
+    position: absolute;
+    top: 0;
+    width: 150%;
+    height: 100%;
+}
+
+.front--card--info h1 {
+    position: absolute;
+    top: 50%;
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 23px;
+    letter-spacing: 6px;
+}
+
+.front--card--info .bottom {
+    /* background-color: brown; */
+    width: 83%;
+    position: absolute;
+    top: 73%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 17px;
+    letter-spacing: 3px;
+}
+
+.front, 
+.back {
+    width: 150%;
+}
+
+.circle.white {
+    position: absolute;
+    top: 17px;
+    left: 35px;
+    background-color: rgb(255, 255, 255);
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.circle.blank {
+    position: absolute;
+    top: 36px;
+    left: 130px;
+    background-color: transparent;
+    border: 2px solid white;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+}
+
+/* -----------------------------BACK CARD STYLE---------------------------- */
+
+.back--card {
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    left: 270px;
+    top: 70px;
+    z-index: 0;
+    /* position: relative; */
+}
+
+.back--card--info {
+    margin: 0;
+    padding: 0;
+    /* background-color: aqua; */
+    position: absolute;
+    top: 39%;
+    left: 120%;
+    font-size: large;
+    letter-spacing: 3px;
+    font-weight: lighter;
+}
+
+/* --------------------------------FORM STYLE------------------------------- */
