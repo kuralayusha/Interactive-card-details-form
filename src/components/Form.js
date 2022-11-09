@@ -9,6 +9,8 @@ function Form(props) {
 
   const [errorCvv, setErrorCvv] = useState()
 
+  const [validErrorCNum, setValidErrorCNum] = useState()
+
   const normalizeCardNumber = (value) => {
     return (
       value
@@ -108,21 +110,12 @@ function Form(props) {
     })
   }
 
-  // function handleBlankErrorCNum(e) {
-  //   const target = e.target
-
-  //   // if (Number.isNaN(target.value)) {
-  //   //   setValidErrorCNum('Wrong format, numbers only')
-  //   // } else {
-  //   //   setValidErrorCNum('')
-  //   // }
-
-  //   if (!target.value) {
-  //     setErrorCNum(`Can't be blank`)
-  //   } else {
-  //     setErrorCNum('')
-  //   }
-  // }
+  function handleBlankErrorCNum(e) {
+    if (isNaN(e.nativeEvent.data) && e.nativeEvent.inputType !== ' ') {
+      e.preventDefault()
+      setValidErrorCNum('Wrong format, numbers only')
+    }
+  }
 
   return (
     <form className="form">
@@ -133,7 +126,7 @@ function Form(props) {
         placeholder="e.g. Jane Appleseed"
         onChange={(e) => {
           handleNameChange(e)
-          // handleBlankErrorName(e)
+          // handleBlankErrorCNum(e)
         }}
         style={{ border: errorName ? '4px solid red' : '' }}
       />
@@ -147,17 +140,20 @@ function Form(props) {
         onChange={(e) => {
           // handleBlankErrorCNum(e)
           handleCardNumChange(e)
-          const { value } = e.target
-          e.target.value = normalizeCardNumber(value)
+          // const { value } = e.target
+          // e.target.value = normalizeCardNumber(value)
         }}
         style={{ border: errorCNum ? '4px solid red' : '' }}
       />
       {errorCNum && <span>{errorCNum}</span>}
+      <br />
+      {validErrorCNum && <span>{validErrorCNum}</span>}
       <div className="dates--cvv">
         <div className="dates">
-          <label>EXP. DATE (MM/YY)</label>
+          <label className="exp--date">EXP. DATE (MM/YY)</label>
           <div className="dates--input">
             <input
+              className="date--input--MM"
               type="text"
               maxLength={2}
               placeholder="MM"
@@ -168,6 +164,7 @@ function Form(props) {
               style={{ border: errorDates ? '4px solid red' : '' }}
             />
             <input
+              className="date--input--YY"
               type="text"
               maxLength={2}
               placeholder="YY"
